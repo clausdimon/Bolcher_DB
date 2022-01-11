@@ -25,7 +25,14 @@
         while ($row = $results->fetch_assoc())
         {
             echo "<tr>
-            <td></td> </tr>";
+            <td>". $row['ID']. "</td>
+            <td>". $row['Name'] . "</td>
+            <td>". $row['Color'] . "</td>
+            <td>". $row['Weight']. "</td>
+            <td>". $row['Flavor Sourness']. "</td>
+            <td>". $row['Flavor Strength']. "</td>
+            <td>". $row['Flavor']. "</td>
+            <td>". $row['Material Cost']. "</td>
+            </tr>";
         }
-
-    }
+		mysqli_close($conn);
