@@ -1,0 +1,61 @@
+<?php
+	require("mysqlConn.php");
+	
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error);}
+	
+	$sql = "SELECT
+    Birger_Bolcher_Bolcher.Bolche_id AS ID,
+    Birger_Bolcher_Bolcher.Bolche_Name AS Name,
+    Birger_Bolcher_Colors.Color AS Color,
+    Birger_Bolcher_Bolcher.Weight,
+    Birger_Bolcher_Sour_Scales.Sour_Scale AS 'Flavor Sourness',
+    Birger_Bolcher_Flavor_Strengths.Flavor_Strength,
+    Birger_Bolcher_Flavors.Flavor,
+    Birger_Bolcher_Bolcher.Material_Cost
+FROM
+    (
+        (
+            (
+                (
+                    Birger_Bolcher_Bolcher
+                INNER JOIN Birger_Bolcher_Colors ON Birger_Bolcher_Bolcher.Color_id = Birger_Bolcher_Colors.Color_id
+                )
+            INNER JOIN Birger_Bolcher_Sour_Scales ON Birger_Bolcher_Bolcher.Sour_Scale_id = Birger_Bolcher_Sour_Scales.Sour_Scale_id
+            )
+        INNER JOIN Birger_Bolcher_Flavor_Strengths ON Birger_Bolcher_Bolcher.Flavor_Strength_id = Birger_Bolcher_Flavor_Strengths.Flavor_Strength_id
+        )
+    INNER JOIN Birger_Bolcher_Flavors ON Birger_Bolcher_Bolcher.Flavor_id = Birger_Bolcher_Flavors.Flavor_id
+    )
+ORDER BY
+    Birger_Bolcher_Bolcher.Weight
+DESC
+LIMIT 3";
+	
+	$results = mysqli_query($conn, $sql);
+	echo "<table>";
+	echo "<tr>";
+	echo "<th>ID</th>";
+	echo "<th>Name</th>";
+	echo "<th>Color</th>";
+	echo "<th>Weight</th>";
+	echo "<th>Flavor Sourness</th>";
+	echo "<th>Flavor Strength</th>";
+	echo "<th>Flavor</th>";
+	echo "<th>Material Cost</th>";
+	echo "</tr>";
+	while ($row = $results->fetch_assoc())
+	{
+		echo "<tr>";
+		echo "<td>". $row['ID']. "</td>";
+		echo "<td>". $row['Name'] . "</td>";
+		echo "<td>". $row['Color'] . "</td>";
+		echo "<td>". $row['Weight']. "</td>";
+		echo "<td>". $row['Flavor Sourness']. "</td>";
+		echo "<td>". $row['Flavor Strength']. "</td>";
+		echo "<td>". $row['Flavor']. "</td>";
+		echo "<td>". $row['Material Cost']. "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
+	mysqli_close($conn);

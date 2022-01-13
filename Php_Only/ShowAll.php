@@ -22,17 +22,29 @@
             INNER JOIN Birger_Bolcher_Flavors ON Birger_Bolcher_Bolcher.Flavor_id = Birger_Bolcher_Flavors.Flavor_id)";
     $results = mysqli_query($conn, $sql);
 
-        while ($row = $results->fetch_assoc())
-        {
-            echo "<tr>
-            <td>". $row['ID']. "</td>
-            <td>". $row['Name'] . "</td>
-            <td>". $row['Color'] . "</td>
-            <td>". $row['Weight']. "</td>
-            <td>". $row['Flavor Sourness']. "</td>
-            <td>". $row['Flavor Strength']. "</td>
-            <td>". $row['Flavor']. "</td>
-            <td>". $row['Material Cost']. "</td>
-            </tr>";
-        }
-		mysqli_close($conn);
+	echo "<table>";
+	echo "<tr>";
+	echo "<th>ID</th>";
+	echo "<th>Name</th>";
+	echo "<th>Color</th>";
+	echo "<th>Weight</th>";
+	echo "<th>Flavor Sourness</th>";
+	echo "<th>Flavor Strength</th>";
+	echo "<th>Flavor</th>";
+	echo "<th>Material Cost</th>";
+	echo "</tr>";
+    while ($row = $results->fetch_assoc())
+    {
+        echo "<tr>";
+        echo "<td>". $row['ID']. "</td>";
+        echo "<td>". $row['Name'] . "</td>";
+        echo "<td>". $row['Color'] . "</td>";
+        echo "<td>". $row['Weight']. "</td>";
+        echo "<td>". $row['Flavor Sourness']. "</td>";
+        echo "<td>". $row['Flavor Strength']. "</td>";
+        echo "<td>". $row['Flavor']. "</td>";
+        echo "<td>". $row['Material Cost']. "</td>";
+        echo "</tr>";
+    }
+	echo "</table>";
+	mysqli_close($conn);
