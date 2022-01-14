@@ -22,7 +22,7 @@
             INNER JOIN Birger_Bolcher_Flavors ON Birger_Bolcher_Bolcher.Flavor_id = Birger_Bolcher_Flavors.Flavor_id)";
     $results = mysqli_query($conn, $sql);
 
-	echo "<table>";
+	echo "<table id='bolcheTable'>";
 	echo "<tr>";
 	echo "<th>ID</th>";
 	echo "<th>Name</th>";

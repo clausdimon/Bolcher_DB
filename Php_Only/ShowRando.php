@@ -10,9 +10,9 @@
     Birger_Bolcher_Colors.Color AS Color,
     Birger_Bolcher_Bolcher.Weight,
     Birger_Bolcher_Sour_Scales.Sour_Scale AS 'Flavor Sourness',
-    Birger_Bolcher_Flavor_Strengths.Flavor_Strength,
+    Birger_Bolcher_Flavor_Strengths.Flavor_Strength AS 'Flavor Strength',
     Birger_Bolcher_Flavors.Flavor,
-    Birger_Bolcher_Bolcher.Material_Cost
+    Birger_Bolcher_Bolcher.Material_Cost AS 'Material Cost'
 FROM
     (
         (
