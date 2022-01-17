@@ -1,5 +1,6 @@
 let xmlhttp;
-//SQL-2 page functions
+
+//SQL-02 page functions
 function showAll()
 {
     if (window.XMLHttpRequest)
@@ -204,7 +205,7 @@ function pageLoading()
     showRandom();
 }
 
-//SQL-3 page functions
+//SQL-03 page functions
 function showAllOnClick()
 {
     if (window.XMLHttpRequest)
@@ -249,7 +250,92 @@ function searching()
             }
         }
     }
+}
 
+function precisionSearch()
+{
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("q");
+    filter = input.value;
+    table = document.getElementById("bolcheTable");
+    tr = table.getElementsByTagName("tr");
 
+    for (i = 0; i<tr.length; i++)
+    {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td)
+        {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.startsWith(filter, 0))
+            {
+                tr[i].style.display = "";
+            }
+            else
+            {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+function searchBar()
+{
+    const cB = document.querySelector('#precision');
+    if (cB.checked === true)
+    {
+        precisionSearch();
+    }
+    else
+    {
+        searching();
+    }
+}
 
+function showColor(str)
+{
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("showAllFromButton").innerHTML = this.responseText;
+        }
+    };
+    if (str != "")
+    {
+        xmlhttp.open("GET", "../Php_Only/ShowColor.php?c="+str, true);
+        xmlhttp.send();
+    }
+    else
+    {
+        xmlhttp.open("GET", "../Php_Only/ShowAll.php", true);
+        xmlhttp.send();
+    }
+}
+
+//SQL-04 page functions
+
+function showPricing()
+{
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("tableInsert").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/ShowBolchePrice.php", true);
+    xmlhttp.send();
 }
