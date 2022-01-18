@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-	<title>SQL-4</title>
+	<title>SQL-04</title>
 	<link rel="stylesheet" href="../Style/style.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
 </head>
 <body onload="showPricing()">
 <header>
-	<h1>SQL-4</h1>
+	<h1>SQL-04</h1>
 </header>
 <div class="row">
 	<div class="col">

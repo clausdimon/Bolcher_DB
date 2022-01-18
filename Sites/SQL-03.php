@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-	<title>SQL-3</title>
+	<title>SQL-03</title>
 	<link rel="stylesheet" href="../Style/style.css">
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -23,7 +23,7 @@
 </head>
 <body>
 <header>
-	<h1>SQL-3</h1>
+	<h1>SQL-03</h1>
 </header>
 <div class="row">
 	<div class="col">

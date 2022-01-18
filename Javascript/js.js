@@ -339,3 +339,42 @@ function showPricing()
     xmlhttp.open("GET", "../Php_Only/ShowBolchePrice.php", true);
     xmlhttp.send();
 }
+//SQl-06 page functions
+function allCustomers()
+{
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("showAllC").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/ShowCustomers.php", true);
+    xmlhttp.send();
+}
+
+function allOrders() {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("showAllO").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/ShowOrders.php", true);
+    xmlhttp.send();
+}
