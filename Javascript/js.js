@@ -471,3 +471,123 @@ function sql07PageLoad()
     customersWithOrders();
     setupTable();
 }
+
+//SQL-08 page functions
+function getOrder(id) {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("specificKunde").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/GetOrder.php?id="+id, true);
+    xmlhttp.send();
+}
+function allOver100Gram() {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("ListOf100Over").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/BoughtOver100Gram.php", true);
+    xmlhttp.send();
+}
+function sameTownPlusStrongBolcher(city) {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("SameTownList").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/SameTownPlusStrong.php?c="+city, true);
+    xmlhttp.send();
+
+}
+function allCustomerGrouped() {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("Grouping").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/CustomerGrouping.php", true);
+    xmlhttp.send();
+}
+function over5Kr() {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("over5krBought").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/BoughtOver5Kr.php", true);
+    xmlhttp.send();
+}
+function boughtBlueShark() {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("blueShark").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../Php_Only/BlueShark.php", true);
+    xmlhttp.send();
+}
+
+function loadingSQL08() {
+    getOrder(4);
+    allOver100Gram();
+    sameTownPlusStrongBolcher(5230);
+    allCustomerGrouped();
+    over5Kr();
+    boughtBlueShark();
+}

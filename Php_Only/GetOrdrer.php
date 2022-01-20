@@ -44,6 +44,7 @@ WHERE
 		echo "<td>" . $rowCustomer['Customer Name'] . "</td>";
 		echo "<td>" . $rowCustomer['Customer Adress'] . "</td>";
 		echo "<td>" . $rowCustomer['City'] . "</td>";
+		echo "</tr>";
 	}
 	echo "</table>";
 	mysqli_close($conn);

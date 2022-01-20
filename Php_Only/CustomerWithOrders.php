@@ -33,6 +33,7 @@ FROM
 		echo "<td>" . $rowCustomer['Kunde Navn'] . "</td>";
 		echo "<td>" . $rowCustomer['Kunde Adresse'] . "</td>";
 		echo "<td>" . $rowCustomer['Ordre Modtaget'] . "</td>";
+		echo "</tr>";
 	}
 	echo "</table>";
 	echo "<br>";

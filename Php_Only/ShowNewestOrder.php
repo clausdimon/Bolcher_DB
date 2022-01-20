@@ -46,6 +46,7 @@ FROM
 		echo "<td>" . $rowCustomer['ID'] . "</td>";
 		echo "<td>" . $rowCustomer['Name'] . "</td>";
 		echo "<td>" . $rowCustomer['Adress'] . "</td>";
+		echo "</tr>";
 	}
 	echo "</table>";
 	echo "<br>";

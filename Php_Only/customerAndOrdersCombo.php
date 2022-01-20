@@ -50,6 +50,7 @@ ORDER BY
 		echo "<td>" . $rowCustomer['Order Date'] . "</td>";
 		echo "<td data-id='" . $rowCustomer['Bolche ID'] . "'>" . $rowCustomer['Bolche Navn'] . "</td>";
 		echo "<td>" . $rowCustomer['Bolche Flavor'] . "</td>";
+		echo "</tr>";
 	}
 	echo "</table>";
 	echo "<br>";
